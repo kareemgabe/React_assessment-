@@ -1,4 +1,4 @@
-// src/components/AddProduct.js
+
 import React, { useState } from 'react';
 import { addProduct } from '../services/productService';
 
