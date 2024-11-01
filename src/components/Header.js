@@ -1,9 +1,9 @@
-
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
-
+import cartIcon from '../assets/cart.image.png'; 
+ 
 const Header = () => {
-    const { totalItems, totalPrice } = useCart();
+    const { totalItems } = useCart();
 
     return (
         <header className="header">
@@ -13,7 +13,12 @@ const Header = () => {
                 </Link>
                 <nav className="nav-links">
                     <Link to="/cart" className="cart-link">
-                        Cart ({totalItems} items) - ${totalPrice.toFixed(2)}
+                        <div className="cart-icon-container">
+                            <img src={cartIcon} alt="Cart" className="cart-icon" />
+                            {totalItems > 0 && (
+                                <span className="cart-badge">{totalItems}</span>
+                            )}
+                        </div>
                     </Link>
                 </nav>
             </div>
